@@ -1,0 +1,88 @@
+/**
+ * Custom theme for reveal.js
+ * Based on the 'White' theme with fonts from 'blood'.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+// @import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,700,300italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+// $mainFontSize: 38px;
+$mainFontSize: 36px;
+// $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFont: Ubuntu, 'sans-serif';
+// $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: Ubuntu, 'sans-serif';
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+  }
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal {
+
+  // some overrides after theme template import
+  p {
+      font-weight: 300;
+      // text-shadow: 1px 1px $coal;
+  }
+  h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+  }
+  blockquote {
+    background: rgba(0, 0, 0, 0.3);
+    p {
+      line-height: 1.7em;
+      text-align: left;
+      margin: 0.5em 0.8em;
+      font-style: normal;
+    }
+  }
+  img.no-bg {
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  .logo {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    bottom: -20%;
+    right: 15%;
+    transform: rotate(-3deg);
+  }
+}
