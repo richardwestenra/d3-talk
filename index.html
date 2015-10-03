@@ -1,91 +1,95 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+  <title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="Slides from my talk at Uncodebar, October 2015">
-		<meta name="author" content="Richard Westenra">
+  <meta name="description" content="Slides from my talk at Uncodebar, October 2015">
+  <meta name="author" content="Richard Westenra">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/custom.css" id="theme">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/custom.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+  <!-- Printing and PDF exports -->
+  <script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+  <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1 class="title">Developing dank datavis with d3.js</h1>
-					<!-- <h5>A Dao of Web Development</h5> -->
-					<br>
-					<p><a href="http://richardwestenra.com">Richard Westenra</a></p>
-					<p>
-						<small><a href="http://twitter.com/richardwestenra">twitter.com/richardwestenra</a> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="http://github.com/richardwestenra">github.com/richardwestenra</a></small>
-					</p>
-					<aside class="notes">
-						<p>Hey, I’m Richard. I’m a front-end developer and interactive designer at Distilled. I make javascript data-visualisations, interactives, and web appy type stuff.</p>
-						<p>I want to talk to you about how sometimes good is better than perfect.</p>
-						<p>...But first, I want you take you way back in time to the year 2000.</p>
-					</aside>
-				</section>
+    <div class="slides">
+      <section>
+        <h1 class="title">Developing dank datavis with d3.js</h1>
+        <br>
+        <p><a href="http://richardwestenra.com">Richard Westenra</a></p>
+        <p>
+          <small><a href="http://twitter.com/richardwestenra">twitter.com/richardwestenra</a> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="http://github.com/richardwestenra">github.com/richardwestenra</a></small>
+        </p>
+        <aside class="notes">
+          <p>Hey, I’m Richard. I’m a front-end developer and interactive designer on the creative team at Distilled. We make JavaScript data-visualisations, and interactive gubbins.</p>
+        </aside>
+      </section>
+      <section data-background="img/portfolio.jpg">
+        <aside class="notes">
+          <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
+        </aside>
+      </section>
+      <section>
+        <aside class="notes">
+          <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
+        </aside>
+      </section>
 
-			</div>
+    </div>
 
-		</div>
+  </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
 
-		<script>
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-
-	</body>
+</body>
 </html>
