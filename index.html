@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>reveal.js - The HTML Presentation Framework</title>
+  <title>Developing Dank Datavis with D3.js - Richard Westenra</title>
 
   <meta name="description" content="Slides from my talk at Uncodebar, October 2015">
   <meta name="author" content="Richard Westenra">
@@ -50,15 +50,104 @@
           <p>Hey, I’m Richard. I’m a front-end developer and interactive designer on the creative team at Distilled. We make JavaScript data-visualisations, and interactive gubbins.</p>
         </aside>
       </section>
+
       <section data-background="img/portfolio.jpg">
         <aside class="notes">
           <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
+          <p>We're basically Buzzfeed for hire.</p>
         </aside>
       </section>
+
       <section>
+        <h1>Principles of data-vis</h1>
+        <p>a.k.a. how to do it right</p>
         <aside class="notes">
-          <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
+          <p></p>
         </aside>
+      </section>
+
+      <section data-background="img/tufte.jpg" data-background-size="contain">
+      </section>
+
+      <section>
+        <h1>1. Data-ink ratio</h1>
+      </section>
+
+      <section data-background="img/data2ink.jpg" data-background-size="contain">
+      </section>
+
+      <section>
+        <h1>2. The lie factor</h1>
+        <aside class="notes">
+          <p>To talk about graphical integrity, Tufte introduces the concept of the lie-factor. The lie-factor is equal to the size of the effect shown in the graphic divided by the size of effect in data.</p>
+        </aside>
+      </section>
+
+      <section data-background="img/liefactor.png" data-background-size="contain">
+        <aside class="notes">
+          <p>So in the image above, it is the change in the size of the line divided by the change in the number the line should represent. In this example, the decision to use perspective corrupts the display and results in a lie-factor of 14.8. The lines simply grow far too fast.</p>
+          <p>While this makes for a more dramatic graphic, it misleads the reader. As a reader, you simply look at how the lines have grown and conclude that the fuel economy is not only improving but improving more and more rapidly as the lines get bigger and bigger faster. Tufte replotted the data more truthfully below.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Show, don’t tell</h1>
+      </section>
+
+      <section>
+        <h1>Keep it simple</h1>
+        <aside class="notes">
+          <p>e.g. Rugby Six Nations Vs. iPod</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>D3</h1>
+        <aside class="notes">
+          <p>d3 is very powerful and flexible, but has a steep learning curve and requires bit more setup compared to libraries like Highcharts.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Working with data</h1>
+      </section>
+
+      <section>
+        <h1>Importing your data</h1>
+        <aside class="notes">
+          <p>Use CSV/TSV or JSON depending on data size</p>
+          <p>Make your data as compact as possible then format it in JS to make it prettier.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Formatting your data</h1>
+        <aside class="notes">
+          <p>Try to do operations on the data before attaching it to objects, not the other way around.</p>
+          <p>Underscore/Lo-dash is your friend</p>
+          <p>Bind as much data to an element as possible in order to make it more flexible.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Avoid DOM operations</h1>
+        <aside class="notes">
+          <p>Avoid DOM operations. Do everything in JS first, then when you have your structure right, attach it to HTML.</p>
+      </section>
+
+      <section>
+        <h1>Binding data</h1>
+        <aside class="notes">
+          <p>Bind as much data to an element as possible in order to make it more flexible.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1></h1>
+      </section>
+
+      <section>
+        <h1></h1>
       </section>
 
     </div>
