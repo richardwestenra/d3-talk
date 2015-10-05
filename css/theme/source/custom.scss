@@ -106,3 +106,20 @@ html {
     background: #fff;
   }
 }
+
+
+.chart {
+  rect {
+
+    fill: steelblue;
+  }
+  text {
+    fill: #444;
+    font-family: sans-serif;
+    text-anchor: end;
+  }
+  .barLabel {
+    fill: white;
+    font-size: 10px;
+  }
+}

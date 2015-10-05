@@ -61,8 +61,7 @@
  -->
       <section>
         <p>But first, let's discuss</p>
-        <h1>Principles of data-vis</h1>
-        <p>a.k.a. how to do it right</p>
+        <h1>what not to do</h1>
         <aside class="notes">
           <p></p>
         </aside>
@@ -122,8 +121,10 @@
         <pre><code>
 var data; // a global
 
-d3.csv("path/to/file.csv", function(error, json) {
-  if (error) return console.warn(error);
+d3.csv('path/to/file.csv', function(error, json) {
+  if (error) {
+    return console.warn(error);
+  }
   data = json;
   visualizeit();
 });
@@ -133,30 +134,53 @@ d3.csv("path/to/file.csv", function(error, json) {
         <aside class="notes">
           <p>Use CSV/TSV or JSON depending on data size</p>
           <p>Make your data as compact as possible then format it in JS to make it prettier.</p>
+          <p>CSV is untyped, so coercion from strings is required.</p>
+          <p>Asynchronous. Code that depends on data must be invoked via callback.</p>
         </aside>
       </section>
 
       <section>
-        <h1>Binding data</h1>
+        <h1>Format your data before using it</h1>
         <aside class="notes">
+          <p>Clean up the data before attaching it to objects, not the other way around.</p>
+          <p>Avoid DOM operations</p>
+          <p>JavaScript has a number of useful built-in array methods: Array.map, Array.filter, Array.sort, Array.reduce, etc. If you need more, D3 also has a variety of data-transform methods. ALso try Underscore or Lo-dash.</p>
+          <p>Bind as much data to an element as possible in order to make it more flexible.</p>
+        </aside>
+      </section>
+
+
+      <section>
+        <h1>Selections</h1>
+        <pre><code>
+d3.select('ul').selectAll("li")
+        </code></pre>
+        <aside class="notes">
+          <p>Works a bit like jQuery: CSS selectors, chaining, etc.</p>
+          <p>Select vs SelectAll</p>
+        </aside>
+      </section>
+
+
+      <section>
+        <h1>Binding data</h1>
+        <pre><code>
+d3.select('ul').selectAll("li").data(['foo','bar','baz'])
+        </code></pre>
+        <aside class="notes">
+          <p>Selections are arrays</p>
         </aside>
       </section>
 
       <section>
         <pre><code>
-var data = [
-  {name:'foo'},
-  {name:'bar'},
-  {name:'baz'}
-];
-
 d3.select('ul')
   .selectAll('li')
-  .data(data)
+  .data(['foo','bar','baz'])
   .enter()
   .append('li')
   .text(function (d) {
-    return d.name;
+    return d;
   });
         </code></pre>
         <p>will result in:</p>
@@ -168,26 +192,122 @@ d3.select('ul')
 </ul>
         </code></pre>
       </section>
-<!--
+
+      <section data-background-color="#fcfcfa" data-background="img/join.png" data-background-size="contain">
+      </section>
+
       <section>
-        <h1>Formatting data</h1>
+        <h1>Exit, Enter, update</h1>
+        <pre><code>
+var circle = svg.selectAll('circle')
+  .data(data);
+
+circle.exit().remove();
+
+circle.enter().append('circle')
+  .attr('r', 2.5);
+
+circle
+  .attr('cx', function(d) { return d.x; })
+  .attr('cy', function(d) { return d.y; });
+        </code></pre>
+      </section>
+
+      <section>
+        <h1>Scales</h1>
         <aside class="notes">
-          <p>Try to do operations on the data before attaching it to objects, not the other way around.</p>
-          <p>Underscore/Lo-dash is your friend</p>
-          <p>Bind as much data to an element as possible in order to make it more flexible.</p>
+          <p>The biggest problem in datavis is converting data units into pixel units. Scale functions take care of this for you.</p>
         </aside>
       </section>
-       -->
-<!--
+
       <section>
-        <h1>Avoid DOM operations</h1>
+        <h1>Input: Domain!</h1>
+        <h1>Output: Range!</h1>
         <aside class="notes">
-          <p>Do all of your calculations with JS object models first, then attach it to HTML.</p>
+        </aside>
       </section>
- -->
+
+      <section>
+        <h1>Ordinal versus Quantitative</h1>
+      </section>
+
+      <section>
+        <h1>Quantitative</h1>
+        <pre><code>
+var x = d3.scale.linear()
+  .domain([12, 24])
+  .range([0, 720]);
+
+x(16); // 240
+        </code></pre>
+        <aside class="notes">
+          <p>Quantitative scales map a continuous (numeric) domain to a continuous range (e.g. linear, exponential, logarithmic, etc.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Ordinal</h1>
+        <pre><code>
+var x = d3.scale.ordinal()
+  .domain(['A', 'B', 'C', 'D'])
+  .range([0, 10, 20, 30]);
+
+x('B'); // 10
+        </code></pre>
+        <aside class="notes">
+          <p>Ordinal scales map a discrete domain to a discrete range.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Transitions</h1>
+        <svg class="chart" id="scales"></svg>
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h1>Transitions</h1>
+        <pre><code>
+d3.selectAll('li')
+  .data([10,20,30,40,50,60])
+  .enter()
+  .append('li')
+  .attr('width',0)
+  .transition()
+  .duration(600)
+  .delay(function (d,i){ return i * 200;})
+  .attr('width', function (d){ return d;});
+        </code></pre>
+      </section>
+
+      <section>
+        <h1>Maps</h1>
+        <aside class="notes">
+          <p>GeoJSON and TopoJSON</p>
+          <p>Different projections</p>
+        </aside>
+      </section>
+
+      <section>
+        <h1>Making it work on mobile</h1>
+        <aside class="notes">
+          <p>Make the design modular, not holistic. Cf. Atomic design</p>
+          <p>Don’t use too much processor. Avoid fixed-position animations, background images, etc.</p>
+          <p>Use mobile sensors like gyro, accelerometer, etc.</p>
+        </aside>
+      </section>
 
       <section>
         <h1></h1>
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h1></h1>
+        <aside class="notes">
+        </aside>
       </section>
 
     </div>
@@ -197,6 +317,7 @@ d3.select('ul')
   <script src="lib/js/head.min.js"></script>
   <script src="lib/js/d3.min.js"></script>
   <script src="js/reveal.js"></script>
+  <script src="js/chart.js"></script>
 
   <script>
     // Full list of configuration options available at:

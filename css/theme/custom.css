@@ -336,3 +336,15 @@ html {
 
 .reveal iframe {
   background: #fff; }
+
+.chart rect {
+  fill: steelblue; }
+
+.chart text {
+  fill: #444;
+  font-family: sans-serif;
+  text-anchor: end; }
+
+.chart .barLabel {
+  fill: white;
+  font-size: 10px; }
