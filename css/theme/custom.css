@@ -292,6 +292,9 @@ body {
 .reveal .slide-number {
   color: #2a76dd; }
 
+html {
+  background: #fff; }
+
 .reveal p {
   font-weight: 300; }
 
@@ -306,6 +309,9 @@ body {
     margin: 0.5em 0.8em;
     font-style: normal; }
 
+.reveal pre code {
+  padding: 5px 25px; }
+
 .reveal img.no-bg {
   background: none;
   border: none;
@@ -318,3 +324,15 @@ body {
   bottom: -20%;
   right: 15%;
   transform: rotate(-3deg); }
+
+.reveal .title {
+  padding: 0 1em; }
+  .reveal .title b {
+    display: block; }
+  .reveal .title span {
+    display: block;
+    font-size: 0.5em;
+    font-weight: normal; }
+
+.reveal iframe {
+  background: #fff; }

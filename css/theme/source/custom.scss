@@ -53,6 +53,9 @@ section.has-dark-background {
 @import "../template/theme";
 // ---------------------------------------------
 
+html {
+  background: $backgroundColor;
+}
 .reveal {
 
   // some overrides after theme template import
@@ -72,6 +75,9 @@ section.has-dark-background {
       font-style: normal;
     }
   }
+  pre code {
+    padding: 5px 25px;
+  }
   img.no-bg {
     background: none;
     border: none;
@@ -84,5 +90,19 @@ section.has-dark-background {
     bottom: -20%;
     right: 15%;
     transform: rotate(-3deg);
+  }
+  .title {
+    padding: 0 1em;
+    b {
+      display: block;
+    }
+    span {
+      display: block;
+      font-size: 0.5em;
+      font-weight: normal;
+    }
+  }
+  iframe {
+    background: #fff;
   }
 }
