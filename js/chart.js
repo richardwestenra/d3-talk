@@ -282,6 +282,9 @@
   function getNewAdjective(){
     var adj = arr[i++];
     d3.select('#adjective').text(adj);
+    if (i>=arr.length) {
+      i = 0;
+    }
   }
 
 
