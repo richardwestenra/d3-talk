@@ -167,6 +167,8 @@ d3.select('ul').selectAll("li")
         <pre><code>
 d3.select('ul').selectAll("li").data(['foo','bar','baz'])
         </code></pre>
+        <br>
+        <p><small>See <a href="http://bost.ocks.org/mike/join/">bost.ocks.org/mike/join/</a></small></p>
         <aside class="notes">
           <p>Selections are arrays</p>
         </aside>
@@ -194,6 +196,12 @@ d3.select('ul')
       </section>
 
       <section data-background-color="#fcfcfa" data-background="img/join.png" data-background-size="contain">
+      </section>
+
+      <section data-id="update">
+        <h1>Exit, Enter, update</h1>
+        <svg class="chart" id="update"></svg>
+        <p><small><code id="updateArray"></code></small></p>
       </section>
 
       <section>
@@ -255,9 +263,9 @@ x('B'); // 10
         </aside>
       </section>
 
-      <section>
+      <section data-id="transitions">
         <h1>Transitions</h1>
-        <svg class="chart" id="scales"></svg>
+        <svg class="chart" id="transitions"></svg>
         <aside class="notes">
         </aside>
       </section>
@@ -277,13 +285,31 @@ d3.selectAll('li')
         </code></pre>
       </section>
 
-      <section>
-        <h1>Maps</h1>
+      <section data-background="img/maps.jpg" data-background-size="cover">
+        <h1>Maps!</h1>
         <aside class="notes">
-          <p>GeoJSON and TopoJSON</p>
-          <p>Different projections</p>
+          <p>Placing points according to lat/long</p>
+          <p>D3 includes different projections and you can add more</p>
+          <p>The first task for any map is finding geometry. Try government census data, Ordnance Survey, GeoCommons, etc.</p>
+          <p>Hands-down, the most convenient source of free geographic data is Natural Earth. An apparent labor of love by cartographer Nathaniel Vaughn Kelso (and others), Natural Earth provides a variety of cultural, physical and raster datasets. Shapefiles are beautifully simplified by hand for different resolutions, letting you choose the resolution appropriate to your application.</p>
         </aside>
       </section>
+
+      <section>
+        <h1>GeoJSON & TopoJSON</h1>
+        <br>
+        <p><small>See Mike Bostock's <a href="http://bost.ocks.org/mike/map/"><em>Let's Make a Map</em></a></small></p>
+        <aside class="notes">
+          <p>If you care about file size or topology, then use TopoJSON. If you don’t care about either, then use GeoJSON for simplicity’s sake.</p>
+          <p>You'll need to install command line tools</p>
+        </aside>
+      </section>
+
+      <section data-id="map">
+        <svg class="chart" id="map"></svg>
+        <p id="mapButtons"></p>
+      </section>
+
 
       <section>
         <h1>Making it work on mobile</h1>
@@ -311,6 +337,7 @@ d3.selectAll('li')
   </div>
 
   <script src="lib/js/head.min.js"></script>
+  <script src="lib/js/topojson.js"></script>
   <script src="lib/js/d3.min.js"></script>
   <script src="js/reveal.js"></script>
   <script src="js/chart.js"></script>

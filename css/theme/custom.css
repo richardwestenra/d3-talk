@@ -348,3 +348,26 @@ html {
 .chart .barLabel {
   fill: white;
   font-size: 10px; }
+
+#map {
+  margin-top: -1em; }
+  #map path {
+    fill: #777; }
+
+#mapButtons {
+  margin: 0; }
+  #mapButtons button {
+    display: inline-block;
+    background: steelblue;
+    box-shadow: none;
+    border: none;
+    border-radius: 1em;
+    color: white;
+    font-size: 0.4em;
+    font-weight: normal;
+    padding: 0.4em 1em 0.45em;
+    margin: 0 0.3em;
+    outline: none;
+    cursor: pointer; }
+    #mapButtons button:hover {
+      background: #456f92; }

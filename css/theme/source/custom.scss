@@ -110,7 +110,6 @@ html {
 
 .chart {
   rect {
-
     fill: steelblue;
   }
   text {
@@ -121,5 +120,31 @@ html {
   .barLabel {
     fill: white;
     font-size: 10px;
+  }
+}
+#map {
+  margin-top: -1em;
+  path {
+    fill: #777;
+  }
+}
+#mapButtons {
+  margin: 0;
+  button {
+    display: inline-block;
+    background: steelblue;
+    box-shadow: none;
+    border: none;
+    border-radius: 1em;
+    color: white;
+    font-size: 0.4em;
+    font-weight: normal;
+    padding: 0.4em 1em 0.45em;
+    margin: 0 0.3em;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background: mix(steelblue,#444,70%);
+    }
   }
 }
