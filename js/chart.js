@@ -183,16 +183,15 @@
         .datum(worldData)
         .attr('d', geo);
 
-      // iss = svg.append('circle')
-      //   .style('fill','steelblue')
-      //   .attr('r',0);
-      var issW = 179/2,
-        issH = 112/2;
+      var issW = 550.2 * 0.7,
+        issH = 34.158 * 0.7;
+
       iss = svg.append('svg:image')
-        .attr('xlink:href','img/iss.png')
+        .attr('xlink:href','img/iss.svg')
         .attr('transform','translate('+(issW/-2)+',' + (issH/-2) + ')')
         .attr('width',issW)
-        .attr('height',issH);
+        .attr('height',issH)
+        .attr('opacity',0);
 
       issText = svg.append('text')
         .attr('x', width/2)
@@ -264,9 +263,11 @@
 
         iss.datum(d)
           .attr('x', long)
-          .attr('y', lat);
+          .attr('y', lat)
+          .attr('opacity',1);
       });
     };
+
     this.updateISS();
 
   }
