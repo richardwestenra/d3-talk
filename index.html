@@ -40,71 +40,76 @@
 
     <div class="slides">
       <section>
-        <h1 class="title">
-          <b>Developing dank datavis</b> <span>with</span> <b>d3.js</b></h1>
-        <br>
-        <p><a href="http://richardwestenra.com">Richard Westenra</a></p>
-        <p>
-          <small><a href="http://twitter.com/richardwestenra">twitter.com/richardwestenra</a> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="http://github.com/richardwestenra">github.com/richardwestenra</a></small>
-        </p>
-        <aside class="notes">
-          <p>Hey, I’m Richard. I’m a front-end developer and interactive designer on the creative team at Distilled. We make JavaScript data-visualisations, and interactive gubbins.</p>
-          <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
-          <p>We're basically Buzzfeed for hire.</p>
-          <p>Today I'm going to take you through the basics of working with d3.</p>
-        </aside>
-      </section>
-<!--
-      <section data-background="img/portfolio.jpg">
-        <aside class="notes">
-        </aside>
-      </section>
- -->
-      <section data-background="img/tufte.jpg" data-background-size="auto 90%">
-        <h2>But first, let's discuss</h2>
-        <h1>principles</h1>
-        <aside class="notes">
-          <p>What to do and not to do when visualizing data</p>
-          <p>Tufte is the godfather of information visualisation</p>
-        </aside>
+        <section>
+          <h1 class="title">
+            <b>Developing dank datavis</b> <span>with</span> <b>d3.js</b></h1>
+          <br>
+          <p><a href="http://richardwestenra.com">Richard Westenra</a></p>
+          <p>
+            <small><a href="http://twitter.com/richardwestenra">twitter.com/richardwestenra</a> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="http://github.com/richardwestenra">github.com/richardwestenra</a></small>
+          </p>
+          <aside class="notes">
+            <p>Hey, I’m Richard. I’m a front-end developer and interactive designer on the creative team at Distilled. We make JavaScript data-visualisations, and interactive gubbins.</p>
+            <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
+            <p>We're basically Buzzfeed for hire.</p>
+            <p>Today I'm going to take you through the basics of working with d3.</p>
+          </aside>
+        </section>
+        <section data-background="img/portfolio.jpg">
+          <aside class="notes">
+          </aside>
+        </section>
       </section>
 
-      <section>
-        <h1>1. Data-ink ratio</h1>
-      </section>
-
-      <section data-background="img/data2ink.jpg" data-background-size="contain">
-      </section>
 
       <section>
-        <h1>2. The lie factor</h1>
-        <aside class="notes">
-          <p>To talk about graphical integrity, Tufte introduced the concept of the lie-factor.</p>
-          <p>The lie-factor is equal to the size of the effect shown in the graphic divided by the size of effect in data.</p>
-        </aside>
+        <section data-background="img/tufte.jpg" data-background-size="auto 90%">
+          <h2>But first, let's discuss</h2>
+          <h1>principles</h1>
+          <aside class="notes">
+            <p>What to do and not to do when visualizing data</p>
+            <p>Tufte is the godfather of information visualisation</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>1. Data-ink ratio</h1>
+        </section>
+
+        <section data-background="img/data2ink.jpg" data-background-size="contain">
+        </section>
+
+        <section>
+          <h1>2. The lie factor</h1>
+          <aside class="notes">
+            <p>To talk about graphical integrity, Tufte introduced the concept of the lie-factor.</p>
+            <p>The lie-factor is equal to the size of the effect shown in the graphic divided by the size of effect in data.</p>
+          </aside>
+        </section>
+
+        <section data-background="img/liefactor.png" data-background-size="contain">
+          <aside class="notes">
+            <p>So in the image above, it is the change in the size of the line divided by the change in the number the line should represent. In this example, the decision to use perspective corrupts the display and results in a lie-factor of 14.8. The lines simply grow far too fast.</p>
+            <p>While this makes for a more dramatic graphic, it misleads the reader. As a reader, you simply look at how the lines have grown and conclude that the fuel economy is not only improving but improving more and more rapidly as the lines get bigger and bigger faster. Tufte replotted the data more truthfully below.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>3. Show, don’t tell</h1>
+        </section>
+        <section>
+          <h1>4. Keep it simple</h1>
+        </section>
+
+        <section>
+          <h3>Compare:</h3>
+          <p><a href="http://www.thomson.co.uk/blog/infographic/rugby/index.html#EngFra04" data-preview-link>Rugby Six Nations Head to Head</a></p>
+          <p>vs</p>
+          <p><a href="http://www.concerthotels.com/ipod-visualized-as-vinyl" data-preview-link>An iPod visualised as Vinyl</a></p>
+        </section>
+
       </section>
 
-      <section data-background="img/liefactor.png" data-background-size="contain">
-        <aside class="notes">
-          <p>So in the image above, it is the change in the size of the line divided by the change in the number the line should represent. In this example, the decision to use perspective corrupts the display and results in a lie-factor of 14.8. The lines simply grow far too fast.</p>
-          <p>While this makes for a more dramatic graphic, it misleads the reader. As a reader, you simply look at how the lines have grown and conclude that the fuel economy is not only improving but improving more and more rapidly as the lines get bigger and bigger faster. Tufte replotted the data more truthfully below.</p>
-        </aside>
-      </section>
-<!--
-      <section>
-        <h1>3. Show, don’t tell</h1>
-      </section>
-      <section>
-        <h1>4. Keep it simple</h1>
-      </section>
-
-      <section>
-        <h3>Compare:</h3>
-        <p><a href="http://www.thomson.co.uk/blog/infographic/rugby/index.html#EngFra04" data-preview-link>Rugby Six Nations Head to Head</a></p>
-        <p>vs</p>
-        <p><a href="http://www.concerthotels.com/ipod-visualized-as-vinyl" data-preview-link>An iPod visualised as Vinyl</a></p>
-      </section>
- -->
 
       <section data-background="img/d3.jpg" data-background-size="contain">
         <aside class="notes">
@@ -221,6 +226,28 @@ circle
         </code></pre>
       </section>
 
+      <section data-id="transitions">
+        <h1>Transitions</h1>
+        <svg class="chart" id="transitions"></svg>
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h1>Transitions</h1>
+        <pre><code>
+d3.selectAll('li')
+  .data([10,20,30,40,50,60])
+  .enter()
+  .append('li')
+  .attr('width',0)
+  .transition()
+  .duration(600)
+  .delay(function (d,i){ return i * 200;})
+  .attr('width', function (d){ return d;});
+        </code></pre>
+      </section>
+
       <section>
         <h1>Scales</h1>
         <aside class="notes">
@@ -263,28 +290,6 @@ x('B'); // 10
         </aside>
       </section>
 
-      <section data-id="transitions">
-        <h1>Transitions</h1>
-        <svg class="chart" id="transitions"></svg>
-        <aside class="notes">
-        </aside>
-      </section>
-
-      <section>
-        <h1>Transitions</h1>
-        <pre><code>
-d3.selectAll('li')
-  .data([10,20,30,40,50,60])
-  .enter()
-  .append('li')
-  .attr('width',0)
-  .transition()
-  .duration(600)
-  .delay(function (d,i){ return i * 200;})
-  .attr('width', function (d){ return d;});
-        </code></pre>
-      </section>
-
       <section data-background="img/maps.jpg" data-background-size="cover">
         <h1>Maps!</h1>
         <aside class="notes">
@@ -321,9 +326,16 @@ d3.selectAll('li')
       </section>
 
       <section>
-        <h1></h1>
-        <aside class="notes">
-        </aside>
+        <h1>Thanks!</h1>
+      </section>
+
+      <section>
+        <h1>Resources</h1>
+        <ul>
+          <li><a href="http://alignedleft.com/tutorials/d3/">alignedleft.com/tutorials/d3/</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Tutorials">github.com/mbostock/d3/wiki/Tutorials</a></li>
+          <li><a href="http://bl.ocks.org/mbostock">bl.ocks.org/mbostock</a></li>
+        </ul>
       </section>
 
       <section>

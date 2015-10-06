@@ -166,7 +166,10 @@
       .scale(scale)
       .translate(translation);
 
-    var geo, path;
+    var geo, path, iss, issText;
+
+    function long(d) { return projection([d.longitude,d.latitude])[0]; }
+    function lat(d) { return projection([d.longitude,d.latitude])[1]; }
 
     d3.json('js/world-110m.json', function(error, world) {
       if (error) { return console.error(error); }
@@ -180,16 +183,43 @@
         .datum(worldData)
         .attr('d', geo);
 
+      // iss = svg.append('circle')
+      //   .style('fill','steelblue')
+      //   .attr('r',0);
+      var issW = 179/2,
+        issH = 112/2;
+      iss = svg.append('svg:image')
+        .attr('xlink:href','img/iss.png')
+        .attr('transform','translate('+(issW/-2)+',' + (issH/-2) + ')')
+        .attr('width',issW)
+        .attr('height',issH);
+
+      issText = svg.append('text')
+        .attr('x', width/2)
+        .attr('y', height - 5)
+        .style({
+          'text-anchor':'middle',
+          'font-size': '15px',
+          'fill': '#333'
+        });
+
     });
+
+    function updateElements(){
+      path.attr('d', geo);
+
+      iss.attr('x', long)
+        .attr('y', lat);
+    }
 
     svg.on('mousemove',function (){
       projection.rotate( d3.mouse(this) );
-
-      path.attr('d', geo);
+      updateElements();
     });
 
-    var button = d3.select('#mapButtons')
-      .selectAll('button')
+    var mapButtons =  d3.select('#mapButtons');
+
+    var button = mapButtons.selectAll('button')
       .data( d3.keys(proj) )
       .enter()
       .append('button')
@@ -206,12 +236,38 @@
 
         geo.projection(projection);
 
-        path.attr('d', geo);
+        updateElements();
       });
 
     button.filter(function (d,i){ return i===0; })
       .style({'background':'#444'});
 
+
+    function getISSLocation(callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET','https://api.wheretheiss.at/v1/satellites/25544');
+      xhr.addEventListener('load',function(){
+        if (this.status == 200) {
+          var response = JSON.parse(this.responseText);
+          callback(response);
+        }
+      });
+      xhr.send();
+    }
+
+
+
+    this.updateISS = function(){
+      getISSLocation(function(d){
+
+        issText.text('('+d.latitude+','+d.longitude+')');
+
+        iss.datum(d)
+          .attr('x', long)
+          .attr('y', lat);
+      });
+    };
+    this.updateISS();
 
   }
 
@@ -232,6 +288,9 @@
         break;
       case 'transitions':
         tc.start();
+        break;
+      case 'map':
+        startInterval(gc.updateISS,5000);
         break;
     }
   });
