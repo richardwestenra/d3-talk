@@ -40,10 +40,8 @@
 
     <div class="slides">
       <section>
-        <section>
-          <h1 class="title">
-            <b>Developing dank datavis</b> <span>with</span> <b>d3.js</b></h1>
-          <br>
+        <section data-id="title">
+          <h1 class="title">Developing <b><span id="adjective">dank</span> datavis</b> <div class="with">with</div> d3.js</h1>
           <p><a href="http://richardwestenra.com">Richard Westenra</a></p>
           <p>
             <small><a href="http://twitter.com/richardwestenra">twitter.com/richardwestenra</a> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="http://github.com/richardwestenra">github.com/richardwestenra</a></small>
@@ -61,33 +59,45 @@
         </section>
       </section>
 
-
+<!--
       <section>
         <section data-background="img/tufte.jpg" data-background-size="auto 90%">
           <h2>But first, let's discuss</h2>
           <h1>principles</h1>
           <aside class="notes">
             <p>What to do and not to do when visualizing data</p>
-            <p>Tufte is the godfather of information visualisation</p>
+            <p>Tufte is the godfather of information visualisation. 1983</p>
           </aside>
         </section>
 
         <section>
-          <h1>1. Data-ink ratio</h1>
-        </section>
-
-        <section data-background="img/data2ink.jpg" data-background-size="contain">
+          <h1>1. Above all else show the data</h1>
+          <aside class="notes">
+            <p>Data-ink ratio = Data-ink / Total ink used to print the graphic</p>
+            <p>Data-ink is the non-erasable core of a graphic, the non-redundant ink arranged in response to variation in the numbers represented.</p>
+            <p>Good graphics should include only data-Ink. Non-Data-Ink is to be deleted everywhere where possible. The reason for this is to avoid drawing the attention of viewers of the data presentation to irrelevant elements. The goal is to design a display with the highest possible data-ink ratio (that is, as close to the total of 1.0), without eliminating something that is necessary for effective communication.</p>
+          </aside>
         </section>
 
         <section>
-          <h1>2. The lie factor</h1>
+          <h2>The data-ink ratio</h2>
+          <img src="img/data2ink.jpg" alt="Data-ink ratio">
+          <aside class="notes">
+            <p>A large share of ink on a graphic should present data-information, the ink changing as the data change. </p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>2. Be honest</h1>
           <aside class="notes">
             <p>To talk about graphical integrity, Tufte introduced the concept of the lie-factor.</p>
             <p>The lie-factor is equal to the size of the effect shown in the graphic divided by the size of effect in data.</p>
           </aside>
         </section>
 
-        <section data-background="img/liefactor.png" data-background-size="contain">
+        <section>
+          <h2>The lie factor</h2>
+          <img src="img/liefactor.png" alt="">
           <aside class="notes">
             <p>So in the image above, it is the change in the size of the line divided by the change in the number the line should represent. In this example, the decision to use perspective corrupts the display and results in a lie-factor of 14.8. The lines simply grow far too fast.</p>
             <p>While this makes for a more dramatic graphic, it misleads the reader. As a reader, you simply look at how the lines have grown and conclude that the fuel economy is not only improving but improving more and more rapidly as the lines get bigger and bigger faster. Tufte replotted the data more truthfully below.</p>
@@ -95,7 +105,7 @@
         </section>
 
         <section>
-          <h1>3. Show, don’t tell</h1>
+          <h1>3. Show, don't tell</h1>
         </section>
 
         <section>
@@ -110,7 +120,7 @@
         </section>
 
       </section>
-
+ -->
 
       <section data-background="img/d3.jpg" data-background-size="contain">
         <aside class="notes">
@@ -191,7 +201,7 @@ d3.select('ul')
     return d;
   });
         </code></pre>
-        <p>will result in:</p>
+        <h2>&#x2193;</h2>
         <pre><code>
 <ul>
   <li>foo</li>
@@ -315,8 +325,7 @@ x('B'); // 10
         <svg class="chart" id="map"></svg>
         <p id="mapButtons"></p>
       </section>
-
-
+<!--
       <section>
         <h1>Making it work on mobile</h1>
         <aside class="notes">
@@ -325,7 +334,7 @@ x('B'); // 10
           <p>Use mobile sensors like gyro, accelerometer, etc.</p>
         </aside>
       </section>
-
+ -->
       <section>
         <h1>Thanks!</h1>
         <br>

@@ -273,10 +273,24 @@
   }
 
 
+
+  // Get some adjectives
+
+  var i = 0;
+  var arr = ['dank','diabolical','daffy','dubious','desirable','delicious','dependable','docile','dramatic','diverse','dreamy','deluxe','deceitful','disruptive','dauntless','deft','dynamic','dainty','decisive','dazzling','dastardly','decent','decorative','decadent','dicey'];
+
+  function getNewAdjective(){
+    var adj = arr[i++];
+    d3.select('#adjective').text(adj);
+  }
+
+
   // Init
   var uc = new UpdateChart();
   var tc = new TransChart();
   var gc = new GeoChart();
+
+  startInterval(getNewAdjective, 500);
 
   Reveal.addEventListener('slidechanged', function(e) {
     var id = e.currentSlide.getAttribute('data-id');
@@ -284,6 +298,9 @@
     stopInterval();
 
     switch (id) {
+      case 'title':
+        startInterval(getNewAdjective, 500);
+        break;
       case 'update':
         startInterval(uc.update, 2000);
         break;
