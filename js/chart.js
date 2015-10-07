@@ -287,6 +287,12 @@
     }
   }
 
+  d3.select('#showNotes').on('click',function(){
+    var show = d3.select(this).text() === 'Show notes';
+    d3.selectAll('.notes').classed('visible', show);
+    d3.select(this).text(show ? 'Hide notes' : 'Show notes');
+  });
+
 
   // Init
   var uc = new UpdateChart();

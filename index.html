@@ -2,32 +2,32 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
 
-  <title>Developing Dank Datavis with D3.js - Richard Westenra</title>
+<title>Developing Dank Datavis with D3.js - Richard Westenra</title>
 
-  <meta name="description" content="Slides from my talk at Uncodebar, October 2015">
-  <meta name="author" content="Richard Westenra">
+<meta name="description" content="Slides from my talk at Uncodebar, October 2015">
+<meta name="author" content="Richard Westenra">
 
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-  <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="css/theme/custom.css" id="theme">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/custom.css" id="theme">
 
-  <!-- Code syntax highlighting -->
-  <link rel="stylesheet" href="lib/css/zenburn.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
 
-  <!-- Printing and PDF exports -->
-  <script>
-  var link = document.createElement( 'link' );
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-  document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 
 <!--[if lt IE 9]>
 <script src="lib/js/html5shiv.js"></script>
@@ -47,14 +47,14 @@
             <small><a href="http://twitter.com/richardwestenra">twitter.com/richardwestenra</a> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="http://github.com/richardwestenra">github.com/richardwestenra</a></small>
           </p>
           <aside class="notes">
-            <p>Hey, I’m Richard. I’m a front-end developer and interactive designer on the creative team at Distilled. We make JavaScript data-visualisations, and interactive gubbins.</p>
-            <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
-            <p>We're basically Buzzfeed for hire.</p>
+            <p>Hey, I'm Richard. I'm a front-end developer and interactive designer on the creative team at Distilled.</p>
             <p>Today I'm going to take you through the basics of working with d3.</p>
           </aside>
         </section>
         <section data-background="img/portfolio.jpg">
           <aside class="notes">
+            <p>We make JavaScript data-visualisations, and interactive gubbins.</p>
+            <p>We're basically Buzzfeed for hire.</p>
           </aside>
         </section>
       </section>
@@ -184,7 +184,7 @@ d3.select('ul').selectAll("li")
 d3.select('ul').selectAll("li").data(['foo','bar','baz'])
         </code></pre>
         <br>
-        <p><small>See <a href="http://bost.ocks.org/mike/join/">bost.ocks.org/mike/join/</a></small></p>
+        <p><small>See <a href="http://bost.ocks.org/mike/join/">bost.ocks.org/mike/join</a> and <a href="http://bost.ocks.org/mike/circles/">bost.ocks.org/mike/circles</a> </small></p>
         <aside class="notes">
           <p>Selections are arrays</p>
         </aside>
@@ -316,7 +316,7 @@ x('B'); // 10
         <br>
         <p><small>See Mike Bostock's <a href="http://bost.ocks.org/mike/map/"><em>Let's Make a Map</em></a></small></p>
         <aside class="notes">
-          <p>If you care about file size or topology, then use TopoJSON. If you don’t care about either, then use GeoJSON for simplicity’s sake.</p>
+          <p>If you care about file size or topology, then use TopoJSON. If you don't care about either, then use GeoJSON for simplicity's sake.</p>
           <p>You'll need to install command line tools</p>
         </aside>
       </section>
@@ -330,7 +330,7 @@ x('B'); // 10
         <h1>Making it work on mobile</h1>
         <aside class="notes">
           <p>Make the design modular, not holistic. Cf. Atomic design</p>
-          <p>Don’t use too much processor. Avoid fixed-position animations, background images, etc.</p>
+          <p>Don't use too much processor. Avoid fixed-position animations, background images, etc.</p>
           <p>Use mobile sensors like gyro, accelerometer, etc.</p>
         </aside>
       </section>
@@ -359,34 +359,36 @@ x('B'); // 10
 
   </div>
 
-  <script src="lib/js/head.min.js"></script>
-  <script src="lib/js/topojson.js"></script>
-  <script src="lib/js/d3.min.js"></script>
-  <script src="js/reveal.js"></script>
-  <script src="js/chart.js"></script>
+  <button id="showNotes">Show notes</button>
 
-  <script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
+<script src="lib/js/head.min.js"></script>
+<script src="lib/js/topojson.js"></script>
+<script src="lib/js/d3.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/chart.js"></script>
 
-      transition: 'slide', // none/fade/slide/convex/concave/zoom
+<script>
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
 
-      // Optional reveal.js plugins
-      dependencies: [
-        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-        { src: 'plugin/zoom-js/zoom.js', async: true },
-        { src: 'plugin/notes/notes.js', async: true }
-      ]
-    });
-  </script>
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  });
+</script>
 
 </body>
 </html>
