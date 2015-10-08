@@ -195,25 +195,20 @@
 
       issText = svg.append('text')
         .attr('x', width/2)
-        .attr('y', height - 5)
+        .attr('y', height - 10)
         .style({
           'text-anchor':'middle',
-          'font-size': '15px',
-          'fill': '#333'
+          'font-size': '18px',
+          'fill': '#333',
+          'text-shadow': '0 0 8px rgba(255,255,255,0.3)'
         });
 
     });
 
-    function updateElements(){
-      path.attr('d', geo);
-
-      iss.attr('x', long)
-        .attr('y', lat);
-    }
-
     svg.on('mousemove',function (){
       projection.rotate( d3.mouse(this) );
-      updateElements();
+      path.attr('d', geo);
+      iss.attr('x', long).attr('y', lat);
     });
 
     var mapButtons =  d3.select('#mapButtons');
@@ -235,7 +230,8 @@
 
         geo.projection(projection);
 
-        updateElements();
+        path.transition().attr('d', geo);
+        iss.transition().attr('x', long).attr('y', lat);
       });
 
     button.filter(function (d,i){ return i===0; })
@@ -259,7 +255,7 @@
     this.updateISS = function(){
       getISSLocation(function(d){
 
-        issText.text('('+d.latitude+','+d.longitude+')');
+        issText.text('Current ISS location: ('+d.latitude+', '+d.longitude+')');
 
         iss.datum(d)
           .attr('x', long)
