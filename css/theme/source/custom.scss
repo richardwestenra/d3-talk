@@ -128,6 +128,45 @@ html {
     font-size: 10px;
   }
 }
+
+#ink {
+  .bar {
+    fill: steelblue;
+    stroke: #333;
+    stroke-width: 2px;
+  }
+  .axis {
+    font-size: 15px;
+  }
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+  }
+}
+
+.scaleChart {
+  .formRow {
+    margin-bottom: 0.5em;
+  }
+  label {
+    display: inline-block;
+    width: 250px;
+    padding-right: 20px;
+    text-align: right;
+    font-size: 0.8em;
+  }
+  input {
+    width: 400px;
+  }
+  span {
+    display: inline-block;
+    width: 100px;
+    margin-left: 0.5em;
+  }
+}
+
 #map {
   margin-top: -1em;
   path {

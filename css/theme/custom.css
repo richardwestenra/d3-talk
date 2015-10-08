@@ -352,6 +352,38 @@ html {
   fill: white;
   font-size: 10px; }
 
+#ink .bar {
+  fill: steelblue;
+  stroke: #333;
+  stroke-width: 2px; }
+
+#ink .axis {
+  font-size: 15px; }
+
+#ink .axis path,
+#ink .axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px; }
+
+.scaleChart .formRow {
+  margin-bottom: 0.5em; }
+
+.scaleChart label {
+  display: inline-block;
+  width: 250px;
+  padding-right: 20px;
+  text-align: right;
+  font-size: 0.8em; }
+
+.scaleChart input {
+  width: 400px; }
+
+.scaleChart span {
+  display: inline-block;
+  width: 100px;
+  margin-left: 0.5em; }
+
 #map {
   margin-top: -1em; }
   #map path {

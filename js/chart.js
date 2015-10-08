@@ -30,6 +30,89 @@
 
   // Make some charts
 
+  function InkChart(){
+
+    var id = '#ink',
+      margin = {top: 20, right: 20, bottom: 30, left: 40},
+      width = 700 - margin.left - margin.right,
+      height = 415 - margin.top - margin.bottom,
+      alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
+      data = getRandomData(50,alphabet.length);
+
+    var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .4)
+      .domain(alphabet);
+
+    var y = d3.scale.linear()
+      .range([height, 0])
+      .domain([0, d3.max(data)]);
+
+    var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient('bottom')
+      .tickPadding(6)
+      .tickSize(-height);
+
+    var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient('left')
+      .tickSize(-width)
+      .tickPadding(7);
+
+    var svg = d3.select(id)
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+      .append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+    this.start = function(){
+
+      svg.selectAll('*').remove();
+
+      svg.append('image')
+        .attr('xlink:href','img/cat.jpg')
+        .attr('width', width)
+        .attr('height', height);
+
+      svg.append('g')
+        .attr('class', 'x axis')
+        .attr('transform', 'translate(0,' + height + ')')
+        .call(xAxis);
+
+      svg.append('g')
+        .attr('class', 'y axis')
+        .call(yAxis);
+
+      svg.selectAll('.bar')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('x', function(d,i) { return x(alphabet[i]); })
+        .attr('width', x.rangeBand())
+        .attr('y', height)
+        .attr('height', 0)
+        .transition()
+        .duration(600)
+        .delay(function(d,i) { return 900 + i*100; })
+        .attr('y', function(d) { return y(d); })
+        .attr('height', function(d) { return height - y(d); });
+
+      svg.append('text')
+        .text('Don\'t do this')
+        .attr('x',width - margin.right)
+        .attr('y',margin.top * 2)
+        .style({
+          'text-anchor':'end',
+          'font-size': '26px',
+          'fill': '#fff',
+          'text-shadow': '0 0 8px rgba(0,0,0,0.5)'
+        });
+    };
+  }
+
+
+
   function TransChart(){
 
     var id = '#transitions',
@@ -129,6 +212,51 @@
 
     };
 
+  }
+
+
+
+  function ScaleChart(){
+
+    var id = '#range',
+      w = 400,
+      h = 30;
+
+    var x = d3.scale.linear()
+      .domain([20, 60])
+      .range([0, w]);
+
+    var svg = d3.select(id)
+      .attr('width', w)
+      .attr('height', h);
+
+    svg.append('rect')
+      .style('fill','#ddd')
+      .attr('width', w)
+      .attr('height', h)
+      .attr('x', 0)
+      .attr('y', 0);
+
+    var bar  = svg.append('rect')
+      .attr('width', 0)
+      .attr('height', h)
+      .attr('x', 0)
+      .attr('y', 0);
+
+    var input = d3.select('#input');
+    var output = d3.select('#output');
+
+    function update(d){
+      bar.transition().attr('width',x(d));
+      input.text(d);
+      output.text( Math.round( x(d) ) );
+    }
+
+    update(40)
+
+    d3.select('#domain').on('change',function (){
+      update(this.value);
+    });
   }
 
 
@@ -291,8 +419,10 @@
 
 
   // Init
+  var ic = new InkChart();
   var uc = new UpdateChart();
   var tc = new TransChart();
+  var sc = new ScaleChart();
   var gc = new GeoChart();
 
   startInterval(getNewAdjective, 500);
@@ -303,6 +433,9 @@
     stopInterval();
 
     switch (id) {
+      case 'ink':
+        ic.start();
+        break;
       case 'title':
         startInterval(getNewAdjective, 500);
         break;
