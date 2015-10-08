@@ -288,7 +288,7 @@ d3.selectAll('rect')
         <h1>Scales</h1>
         <h3>are functions that map from an input domain to an output range</h3>
         <br>
-        <div class="scaleChart">
+        <div class="scaleForm">
           <div class="formRow">
             <label for="domain">Input: [20,60]</label>
             <input id="domain" type="range" min=20 max=60 value=40>
@@ -383,12 +383,38 @@ x('B'); // 10
 
       <section data-id="force">
         <h2>Use the force, Luke!</h2>
-        <svg class="chart" id="force"></svg>
+        <svg class="chart" id="force" width=700 height=500></svg>
         <p><small>See <a href="http://mbostock.github.io/d3/talk/20110921/#6" data-preview-link>mbostock.github.io/d3/talk/20110921</a></small></p>
         <aside class="notes">
           <p>Use <a href="https://github.com/mbostock/d3/wiki/Force-Layout#friction">friction</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#charge">charge</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#gravity">gravity</a> etc to adjust node behaviour</p>
-          <p>Force charts include a tick function the handles simulation's animation.</p>
+          <p>Force charts include a tick function the handles simulation's animation. On each tick you can have it do something, until it stops ticking.</p>
           <p>Internally, the layout uses a cooling parameter alpha which controls the layout temperature: as the physical simulation converges on a stable layout, the temperature drops, causing nodes to move more slowly. Eventually, alpha drops below a threshold and the simulation stops completely, freeing the CPU and avoiding battery drain.</p>
+        </aside>
+      </section>
+
+      <section data-id="force2">
+        <h2>Collision detection</h2>
+        <svg class="chart" id="force2" width=600 height=400></svg>
+        <p><small>See <a href="http://bl.ocks.org/mbostock/3231298">bl.ocks.org/mbostock/3231298</a></small></p>
+        <div class="forceForm">
+          <div class="formRow">
+            <label>Gravity:</label>
+            <input id="gravity" type="range" min=-0.1 max=0.1 value=0.05 step=0.001>
+            <span id="gravityVal">0.05</span>
+          </div>
+          <div class="formRow">
+            <label>Charge:</label>
+            <input id="charge" type="range" min=-10 max=10 value=0 step=0.1>
+            <span id="chargeVal">0</span>
+          </div>
+          <div class="formRow">
+            <label>Friction:</label>
+            <input id="friction" type="range" min=0 max=1 value=0.9 step=0.1>
+            <span id="frictionVal">0.9</span>
+          </div>
+        </div>
+        <aside class="notes">
+          <p>Use <a href="https://github.com/mbostock/d3/wiki/Force-Layout#friction">friction</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#charge">charge</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#gravity">gravity</a> etc to adjust node behaviour</p>
         </aside>
       </section>
 

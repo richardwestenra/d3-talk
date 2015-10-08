@@ -146,7 +146,7 @@ html {
   }
 }
 
-.scaleChart {
+.scaleForm {
   .formRow {
     margin-bottom: 0.5em;
   }
@@ -265,5 +265,24 @@ html {
     font: 10px sans-serif;
     pointer-events: none;
     text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  }
+}
+
+.forceForm {
+  .formRow {
+    display: inline-block;
+    margin: 5px;
+    padding: 0 15px 8px;
+    background: #eee;
+  }
+  label {
+    font-size: 0.6em;
+    margin-right: 10px;
+  }
+  span {
+    display: inline-block;
+    font-size: 0.5em;
+    width: 50px;
+    text-align: center;
   }
 }

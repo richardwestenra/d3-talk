@@ -366,20 +366,20 @@ html {
   stroke: #000;
   stroke-width: 2px; }
 
-.scaleChart .formRow {
+.scaleForm .formRow {
   margin-bottom: 0.5em; }
 
-.scaleChart label {
+.scaleForm label {
   display: inline-block;
   width: 250px;
   padding-right: 20px;
   text-align: right;
   font-size: 0.8em; }
 
-.scaleChart input {
+.scaleForm input {
   width: 400px; }
 
-.scaleChart span {
+.scaleForm span {
   display: inline-block;
   width: 100px;
   margin-left: 0.5em; }
@@ -466,3 +466,19 @@ html {
   font: 10px sans-serif;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff; }
+
+.forceForm .formRow {
+  display: inline-block;
+  margin: 5px;
+  padding: 0 15px 8px;
+  background: #eee; }
+
+.forceForm label {
+  font-size: 0.6em;
+  margin-right: 10px; }
+
+.forceForm span {
+  display: inline-block;
+  font-size: 0.5em;
+  width: 50px;
+  text-align: center; }
