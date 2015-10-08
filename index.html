@@ -105,15 +105,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section>
-          <h1>3. Show, don't tell</h1>
+          <h2>3. Don't make me think</h2>
+          <img src="img/napoleon.jpg" alt="Napoleon"/>
         </section>
 
         <section>
-          <h1>4. Keep it simple</h1>
-        </section>
-
-        <section>
-          <h3>Compare:</h3>
+          <h2>Compare:</h2>
           <p><a href="http://www.thomson.co.uk/blog/infographic/rugby/index.html#EngFra04" data-preview-link>Rugby Six Nations Head to Head</a></p>
           <p>vs</p>
           <p><a href="http://www.concerthotels.com/ipod-visualized-as-vinyl" data-preview-link>An iPod visualised as Vinyl</a></p>
@@ -130,6 +127,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
       <section>
         <h1>Working with data</h1>
+        <aside class="notes">
+          <p>One of the great things about d3 is the way it handles data.</p>
+          <p>It enforces separation of concerns between data and presentation.</p>
+          <p>It can be a little counterintuitive at first, but it's a really powerful way of programming once you get your head around it.</p>
+          <p>Loads of examples available online. Read them to get used to the style of coding.</p>
+        </aside>
       </section>
 
       <section>
@@ -353,16 +356,16 @@ x('B'); // 10
           <p>Internally, the layout uses a cooling parameter alpha which controls the layout temperature: as the physical simulation converges on a stable layout, the temperature drops, causing nodes to move more slowly. Eventually, alpha drops below a threshold and the simulation stops completely, freeing the CPU and avoiding battery drain.</p>
         </aside>
       </section>
-<!--
+
       <section>
-        <h1>Making it work on mobile</h1>
+        <h2>Making it work on mobile</h2>
+        <img src="img/devices.gif" alt="">
         <aside class="notes">
-          <p>Make the design modular, not holistic. Cf. Atomic design</p>
-          <p>Don't use too much processor. Avoid fixed-position animations, background images, etc.</p>
-          <p>Use mobile sensors like gyro, accelerometer, etc.</p>
+          <p>Detect resize events with event listeners and then update with width/height values and use the update the values.</p>
+          <p>Choose charts with modular designs, so that elements can be rearranged. Keep it minimalist.</p>
         </aside>
       </section>
- -->
+
       <section>
         <h1>Thanks!</h1>
         <br>
