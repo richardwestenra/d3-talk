@@ -307,7 +307,10 @@
         startInterval(getNewAdjective, 500);
         break;
       case 'update':
-        startInterval(uc.update, 2000);
+        setTimeout(function(){
+          uc.update();
+          startInterval(uc.update, 2000);
+        }, 600);
         break;
       case 'transitions':
         tc.start();

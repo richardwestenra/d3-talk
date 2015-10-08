@@ -399,3 +399,14 @@ html {
   text-align: left; }
   .reveal aside.notes.visible p {
     margin: 0.5em 0; }
+
+.reveal .layouts {
+  background: rgba(255, 255, 255, 0.4);
+  list-style: none;
+  text-align: center;
+  margin: 1em 3em;
+  padding: 0.5em;
+  text-shadow: 0 0 10px #fff; }
+  .reveal .layouts li {
+    display: inline-block;
+    margin: 0 0.4em; }

@@ -189,3 +189,15 @@ html {
     }
   }
 }
+.reveal .layouts {
+  background: rgba(#fff,0.4);
+  list-style: none;
+  text-align: center;
+  margin: 1em 3em;
+  padding: 0.5em;
+  text-shadow: 0 0 10px #fff;
+  li {
+    display: inline-block;
+    margin: 0 0.4em;
+  }
+}

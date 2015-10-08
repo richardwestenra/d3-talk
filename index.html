@@ -59,7 +59,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
       </section>
 
-<!--
+
       <section>
         <section data-background="img/tufte.jpg" data-background-size="auto 90%">
           <h2>But first, let's discuss</h2>
@@ -120,7 +120,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
       </section>
- -->
+
 
       <section data-background="img/d3.jpg" data-background-size="contain">
         <aside class="notes">
@@ -325,6 +325,34 @@ x('B'); // 10
         <svg class="chart" id="map"></svg>
         <p id="mapButtons"></p>
       </section>
+
+      <section data-background="img/layouts.png" data-background-size="cover">
+        <h1>Layouts!</h1>
+        <ul class="layouts">
+          <li><a href="https://github.com/mbostock/d3/wiki/Bundle-Layout">Bundle</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Chord-Layout">Chord</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Cluster-Layout">Cluster</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Force-Layout">Force</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Hierarchy-Layout">Hierarchy</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Histogram-Layout">Histogram</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Pack-Layout">Pack</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Partition-Layout">Partition</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Pie-Layout">Pie</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Stack-Layout">Stack</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Tree-Layout">Tree</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Treemap-Layout">Treemap</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Use the force, Luke!</h1>
+        <p>See <a href="http://mbostock.github.io/d3/talk/20110921/#6" data-preview-link>mbostock.github.io/d3/talk/20110921</a></p>
+        <aside class="notes">
+          <p>Use <a href="https://github.com/mbostock/d3/wiki/Force-Layout#friction">friction</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#charge">charge</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#gravity">gravity</a> etc to adjust node behaviour</p>
+          <p>Force charts include a tick function the handles simulation's animation.</p>
+          <p>Internally, the layout uses a cooling parameter alpha which controls the layout temperature: as the physical simulation converges on a stable layout, the temperature drops, causing nodes to move more slowly. Eventually, alpha drops below a threshold and the simulation stops completely, freeing the CPU and avoiding battery drain.</p>
+        </aside>
+      </section>
 <!--
       <section>
         <h1>Making it work on mobile</h1>
@@ -351,6 +379,7 @@ x('B'); // 10
         <ul>
           <li><a href="http://alignedleft.com/tutorials/d3/">alignedleft.com/tutorials/d3/</a></li>
           <li><a href="https://github.com/mbostock/d3/wiki/Tutorials">github.com/mbostock/d3/wiki/Tutorials</a></li>
+          <li><a href="https://github.com/mbostock/d3/wiki/Gallery">github.com/mbostock/d3/wiki/Gallery</a></li>
           <li><a href="http://bl.ocks.org/mbostock">bl.ocks.org/mbostock</a></li>
         </ul>
       </section>
