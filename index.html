@@ -381,9 +381,10 @@ x('B'); // 10
         </ul>
       </section>
 
-      <section>
-        <h1>Use the force, Luke!</h1>
-        <p>See <a href="http://mbostock.github.io/d3/talk/20110921/#6" data-preview-link>mbostock.github.io/d3/talk/20110921</a></p>
+      <section data-id="force">
+        <h2>Use the force, Luke!</h2>
+        <svg class="chart" id="force"></svg>
+        <p><small>See <a href="http://mbostock.github.io/d3/talk/20110921/#6" data-preview-link>mbostock.github.io/d3/talk/20110921</a></small></p>
         <aside class="notes">
           <p>Use <a href="https://github.com/mbostock/d3/wiki/Force-Layout#friction">friction</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#charge">charge</a>, <a href="https://github.com/mbostock/d3/wiki/Force-Layout#gravity">gravity</a> etc to adjust node behaviour</p>
           <p>Force charts include a tick function the handles simulation's animation.</p>
@@ -392,11 +393,11 @@ x('B'); // 10
       </section>
 
       <section>
-        <h2>Making it work on mobile</h2>
+        <h2>Making it responsive</h2>
         <img src="img/devices.gif" alt="">
         <aside class="notes">
           <p>Detect resize events with event listeners and then update with width/height values and use the update the values.</p>
-          <p>Choose charts with modular designs, so that elements can be rearranged. Keep it minimalist.</p>
+          <!-- <p>Choose charts with modular designs, so that elements can be rearranged. Keep it minimalist.</p> -->
         </aside>
       </section>
 
